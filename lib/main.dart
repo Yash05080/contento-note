@@ -2,14 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
 import 'package:mario_frontend/note_data.dart';
 import 'package:provider/provider.dart';
 import 'homepage.dart';
+import 'note.dart';
 
 void main() async {
   await Hive.initFlutter();
-  await Hive.openBox('notes_database');
+  Hive.registerAdapter(NoteAdapter()); // Register adapter to use it in your file...it is necessary for saving
+  await Hive.openBox('note_database');
   runApp(const MyApp());
 }
 

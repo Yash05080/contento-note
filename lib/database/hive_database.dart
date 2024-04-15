@@ -3,7 +3,7 @@ import 'package:mario_frontend/note.dart';
 
 class HiveDatabase {
   //refence our flutter box
-  final _myBox = Hive.box('notes_database');
+  final _myBox = Hive.box('note_database');
 
   //load notes
   List<Note> loadNotes() {
@@ -23,6 +23,7 @@ class HiveDatabase {
       //default first note
       savedNotesFormatted.add(Note(id: 0, text: 'first note'));
     }
+    print(savedNotesFormatted);
     return savedNotesFormatted;
   }
 
@@ -38,5 +39,7 @@ class HiveDatabase {
     }
     //then store into hive
     _myBox.put("ALL_NOTES", allNotesFormatted);
+    print(_myBox);
+    print(allNotesFormatted);
   }
 }

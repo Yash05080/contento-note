@@ -7,15 +7,12 @@ class NoteData extends ChangeNotifier {
 //hive database
   final db = HiveDatabase();
 //overall list of notes
-  List<Note> allNotes = [
-    //default first note
-    Note(id: 0, text: 'first note'),
-    Note(id: 1, text: 'second note'),
-  ];
+  List<Note> allNotes = [];
 
   //initialize list
   void initializeNotes() {
     allNotes = db.loadNotes();
+    print(db);
   }
 
 // get notes
