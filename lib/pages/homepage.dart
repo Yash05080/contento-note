@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mario_frontend/note_data.dart';
+import 'package:mario_frontend/models/note_data.dart';
 import 'package:provider/provider.dart';
 
 import 'Editing_Note_Page.dart';
-import 'note.dart';
+import '../models/note.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -68,17 +68,21 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           //heading
-          const Padding(
-            padding: EdgeInsets.only(left: 25.0, top: 75),
-            child: Text(
-              "Notes",
-              style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
-            ),
+          Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 25.0, top: 75),
+                child: Text(
+                  "Notes",
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
+                ),
+              ),
+            ],
           ),
           value.getAllNotes().length == 0
               ? Container(
                   height: 300,
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       "Let's start your journey",
                       style: TextStyle(fontSize: 30),
@@ -86,16 +90,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   ))
               : CupertinoListSection.insetGrouped(
                   children: List.generate(
-                      value.getAllNotes().length,
-                      (index) => CupertinoListTile(
-                            title: Text(value.getAllNotes()[index].text),
-                            onTap: () =>
-                                gotoNotePage(value.getAllNotes()[index], false),
-                            trailing: IconButton(
-                                onPressed: () =>
-                                    deleteNote(value.getAllNotes()[index]),
-                                icon: Icon(Icons.delete)),
-                          )))
+                  value.getAllNotes().length,
+                  (index) => CupertinoListTile(
+                    title: Text(value.getAllNotes()[index].text),
+                    onTap: () =>
+                        gotoNotePage(value.getAllNotes()[index], false),
+                    trailing: IconButton(
+                        onPressed: () => deleteNote(value.getAllNotes()[index]),
+                        icon: const Icon(Icons.delete)),
+                  ),
+                ))
         ]),
       ),
     );

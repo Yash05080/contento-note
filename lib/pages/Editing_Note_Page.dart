@@ -1,10 +1,13 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_quill/flutter_quill.dart';
-import 'package:mario_frontend/note_data.dart';
+import 'package:mario_frontend/ai/aihome.dart';
+import 'package:mario_frontend/models/note_data.dart';
 import 'package:provider/provider.dart';
-import 'note.dart';
+import '../models/note.dart';
 
 class EditingNotePage extends StatefulWidget {
   Note note;
@@ -80,52 +83,53 @@ class _EditingNotePageState extends State<EditingNotePage> {
       body: Column(
         children: [
           //toolbar
-          Center(
-            child: QuillSimpleToolbar(
-              configurations: QuillSimpleToolbarConfigurations(
-                controller: _controller,
-                showAlignmentButtons: false,
-                showBoldButton: false,
-                showBackgroundColorButton: false,
-                showCenterAlignment: false,
-                showClearFormat: false,
-                showCodeBlock: false,
-                showColorButton: false,
-                showDirection: false,
-                showIndent: false,
-                showInlineCode: false,
-                showDividers: false,
-                showFontFamily: false,
-                showFontSize: false,
-                showHeaderStyle: false,
-                showItalicButton: false,
-                showJustifyAlignment: false,
-                showLeftAlignment: false,
-                showLink: false,
-                showListBullets: false,
-                showListCheck: false,
-                showListNumbers: false,
-                showQuote: false,
-                showRightAlignment: false,
-                showSearchButton: false,
-                showSmallButton: false,
-                showStrikeThrough: false,
-                showSubscript: false,
-                showSuperscript: false,
-                showUnderLineButton: false,
+          Expanded(
+            flex: 2,
+            child: Center(
+              child: QuillSimpleToolbar(
+                configurations: QuillSimpleToolbarConfigurations(
+                  controller: _controller,
+                ),
               ),
             ),
           ),
 
           //editor
+          Expanded(
+            flex: 6,
+            child: Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: QuillEditor.basic(
+                  configurations: QuillEditorConfigurations(
+                controller: _controller,
+                readOnly: false,
+              )),
+            ),
+          ),
           Padding(
-            padding: const EdgeInsets.all(25.0),
-            child: QuillEditor.basic(
-                configurations: QuillEditorConfigurations(
-              controller: _controller,
-              readOnly: false,
-            )),
-          )
+            padding: const EdgeInsets.fromLTRB(0, 0, 25, 25),
+            child: Expanded(
+              flex: 2,
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: FloatingActionButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AIhome(),
+                        ));
+                  },
+                  backgroundColor: Colors.grey[300],
+                  elevation: 1,
+                  child: const Icon(
+                    Icons.chat,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

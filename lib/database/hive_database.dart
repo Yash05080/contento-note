@@ -1,5 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:mario_frontend/note.dart';
+import 'package:mario_frontend/models/note.dart';
 
 class HiveDatabase {
   //refence our flutter box
