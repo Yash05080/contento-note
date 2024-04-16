@@ -22,7 +22,7 @@ class _AIhomeState extends State<AIhome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("AI"),
+        title: Text("AI Helper"),
       ),
       body: _buildUI(),
     );

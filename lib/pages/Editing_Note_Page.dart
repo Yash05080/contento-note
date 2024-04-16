@@ -99,11 +99,14 @@ class _EditingNotePageState extends State<EditingNotePage> {
             flex: 6,
             child: Padding(
               padding: const EdgeInsets.all(25.0),
-              child: QuillEditor.basic(
-                  configurations: QuillEditorConfigurations(
-                controller: _controller,
-                readOnly: false,
-              )),
+              child: Container(
+                color: Colors.grey[300],
+                child: QuillEditor.basic(
+                    configurations: QuillEditorConfigurations(
+                  controller: _controller,
+                  readOnly: false,
+                )),
+              ),
             ),
           ),
           Padding(
@@ -120,11 +123,11 @@ class _EditingNotePageState extends State<EditingNotePage> {
                           builder: (context) => AIhome(),
                         ));
                   },
-                  backgroundColor: Colors.grey[300],
+                  backgroundColor: Colors.white,
                   elevation: 1,
                   child: const Icon(
                     Icons.chat,
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 0, 0, 0),
                   ),
                 ),
               ),

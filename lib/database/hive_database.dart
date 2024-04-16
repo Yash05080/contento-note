@@ -21,7 +21,7 @@ class HiveDatabase {
       }
     } else {
       //default first note
-      savedNotesFormatted.add(Note(id: 0, text: 'first note'));
+      savedNotesFormatted.add(Note(id: 0, text: 'sample page'));
     }
     print(savedNotesFormatted);
     return savedNotesFormatted;

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mario_frontend/models/note_data.dart';
 import 'package:provider/provider.dart';
 
@@ -59,11 +60,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),*/
         floatingActionButton: FloatingActionButton(
           onPressed: createNewNote,
-          backgroundColor: Colors.grey[300],
+          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
           elevation: 1,
           child: const Icon(
             Icons.add,
-            color: Colors.white,
+            color: Color.fromARGB(255, 0, 0, 0),
           ),
         ),
         body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -73,8 +74,8 @@ class _MyHomePageState extends State<MyHomePage> {
               Padding(
                 padding: EdgeInsets.only(left: 25.0, top: 75),
                 child: Text(
-                  "Notes",
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
+                  "Content Pages",
+                  style: GoogleFonts.dmSerifText(fontSize: 48),
                 ),
               ),
             ],
