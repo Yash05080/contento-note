@@ -19,8 +19,15 @@ Contento Notes is a powerful, AI-powered content creation app made with Flutter,
 ---
 
 ## 📸 Screenshots
+<p align="center">
+   <img src="https://github.com/user-attachments/assets/9ca59e3c-3cb9-4bca-a571-fd5985e7c2e6" alt="cn4" width="30%" />
+  <img src="https://github.com/user-attachments/assets/b58d291f-4d8c-4eb4-8f9f-faaf608107d9" alt="cn2" width="30%" style="margin-right: 10px;" />
+  <img src="https://github.com/user-attachments/assets/38d00cbc-d347-4d52-ad4a-de739c70aec1" alt="cn3" width="30%" style="margin-right: 10px;" />
+  
+  
+</p>
 
-> _Add screenshots of your app UI here for better visual appeal_
+
 
 ---
 
